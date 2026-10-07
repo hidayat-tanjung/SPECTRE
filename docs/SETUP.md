@@ -3,7 +3,7 @@
 Complete installation, configuration, and usage guide.
 
 ---
-
+<img width="1254" height="1254" alt="1000295559" src="https://github.com/user-attachments/assets/770f1642-2e5a-4f25-950b-260e646ee869" />
 ## 📑 DAFTAR ISI
 
 1. [Requirements](#1-requirements)
