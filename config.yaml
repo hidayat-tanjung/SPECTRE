@@ -1,0 +1,111 @@
+# ============================================================
+# SPECTRE v5.0 - CONFIG
+# ============================================================
+
+general:
+  version: "5.0.0"
+  author: "イズミー (IZUMI)"
+  year: "2050"
+  threads: 100
+  timeout: 8
+  user_agent: "random"
+
+# === AI Layer ===
+ai:
+  enabled: false
+  provider: "none"
+  ollama:
+    host: "http://127.0.0.1:11434"
+    model: "llama3.2"
+    timeout: 120
+  openai:
+    api_key: ""
+    model: "gpt-4o-mini"
+    base_url: "https://api.openai.com/v1"
+    timeout: 60
+  anthropic:
+    api_key: ""
+    model: "claude-3-haiku-20240307"
+    base_url: "https://api.anthropic.com/v1"
+    timeout: 60
+  features:
+    report_generation: true
+    vuln_reasoning: true
+    payload_mutation: false
+    chat_interface: true
+
+# === Storage ===
+storage:
+  driver: "sqlite"
+  sqlite:
+    path: "spectre.db"
+  postgres:
+    dsn: "postgresql://spectre:spectre@localhost:5432/spectre"
+
+# === Redis (distributed) ===
+redis:
+  enabled: false
+  url: "redis://127.0.0.1:6379/0"
+  queue_name: "spectre:tasks"
+
+# === C2 ===
+c2:
+  telegram:
+    enabled: false
+    bot_token: ""
+    chat_id: ""
+    poll_interval: 3
+  discord:
+    enabled: false
+    webhook: ""
+    bot_token: ""
+    channel_id: ""
+    poll_interval: 3
+  custom_tcp:
+    enabled: false
+    host: "0.0.0.0"
+    port: 4444
+    encrypt: true
+    key: ""
+  dead_drop:
+    enabled: false
+    github_token: ""
+    gist_id: ""
+    poll_interval: 30
+
+# === Recon API ===
+recon:
+  shodan_key: ""
+  virustotal_key: ""
+  hunter_key: ""
+  censys_id: ""
+  censys_secret: ""
+  fofa_email: ""
+  fofa_key: ""
+  hibp_key: ""
+
+# === Exploit ===
+exploit:
+  msf:
+    enabled: false
+    host: "127.0.0.1"
+    port: 55552
+    password: "msf"
+  auto_pwn: false
+
+# === Web UI ===
+web:
+  host: "0.0.0.0"
+  port: 5000
+  auth:
+    enabled: true
+    users:
+      admin: "changeme"
+  session_secret: "change-me"
+
+# === Evasion ===
+evasion:
+  amsi_bypass: false
+  etw_patch: false
+  obfuscate_payloads: true
+  pack_stub: false

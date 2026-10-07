@@ -1,0 +1,44 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+venv/
+env/
+.venv/
+.pytest_cache/
+
+# === SPECTRE artifacts ===
+spectre.db
+spectre.db-journal
+logs/
+reports/
+backdoor_*/
+phishing_*/
+evasion_*/
+ransomware_*
+geo_*.html
+ai_report_*.txt
+
+# === Config dengan secrets ===
+config.local.yaml
+.env
+.env.*
+*.key
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Node (kalau ada web UI build) ===
+node_modules/
+dist/

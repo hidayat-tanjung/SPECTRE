@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+  spectre-master:
+    build: .
+    container_name: spectre-master
+    ports:
+      - "5000:5000"
+    environment:
+      - CONFIG_PATH=/app/config.yaml
+    volumes:
+      - ./config.yaml:/app/config.yaml
+      - ./spectre.db:/app/spectre.db
+    depends_on:
+      - redis
+    restart: unless-stopped
+    command: ["python", "spectre.py", "--web"]
+
+  spectre-worker:
+    build: .
+    container_name: spectre-worker
+    environment:
+      - CONFIG_PATH=/app/config.yaml
+    depends_on:
+      - redis
+    deploy:
+      replicas: 3
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: spectre-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: spectre-db
+    environment:
+      POSTGRES_USER: spectre
+      POSTGRES_PASSWORD: spectre
+      POSTGRES_DB: spectre
+    ports:
+      - "5432:5432"
+    volumes:
+      - spectre-pg:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: spectre-ai
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  spectre-pg:
+  ollama-data:
