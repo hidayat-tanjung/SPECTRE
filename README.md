@@ -21,8 +21,6 @@
 - ⚡ **Async Recon**
 
 👻 **Author:** イズミー (IZUMI)  
-📅 **Year:** 2050  
-📜 **License:** For authorized security testing only
 
 ---
 
@@ -288,15 +286,8 @@ Author tidak bertanggung jawab atas penyalahgunaan.
 
 ## 🙏 CREDITS
 
-- **Author:** イズミー (IZUMI)
-- **Version:** 5.0.0
-- **Year:** 2050
 
 ```
-╔══════════════════════════════════════════════════════════════╗
-║  💀 SPECTRE v5.0 — Singularity Edition — READY 💀           ║
-║  🔥 NO FILTER | NO RULES | NO MERCY 🔥                       ║
-╚══════════════════════════════════════════════════════════════╝
-```
+📜 **License:** For authorized security testing only
 
 **End of README**
